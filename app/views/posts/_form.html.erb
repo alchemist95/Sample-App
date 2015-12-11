@@ -17,9 +17,10 @@
   </div>
   <div class="field">
     <%= f.label :body %><br>
-    <%= f.text_field :body %>
+    <%#= f.text_field :body %>
+    <%= f.cktext_area :body, :class => 'someclass' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :SUBMIT %>
   </div>
 <% end %>

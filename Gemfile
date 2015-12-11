@@ -33,3 +33,7 @@ group :doc do
 end
 
 gem 'devise', '~> 3.5', '>= 3.5.2'
+
+gem 'ckeditor'
+
+gem 'rails-html-sanitizer'

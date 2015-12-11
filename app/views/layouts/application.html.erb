@@ -3,23 +3,50 @@
 <head>
   <title>Note</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "shreya.css" %>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to "Sign_Up", new_user_registration_path %>
-<%= link_to "Log in", new_user_session_path %>
 
- <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+<div class="header">
+<img src="http://wcdn3.dataknet.com/static/resources/icons/set109/f50ee03c.png" width="50" height="50">
+<span class="imp">www.shelf.com</span>
+</div>
+
+
+
+<div class="info">
+<span class="pad" style="font-size:20px;"><%= link_to "HOME", posts_path %></span>
+  
+<% if !current_user %>              
+<span class="pad"><%= link_to "Log in", new_user_session_path %></span>
+<span class="pad"><%= link_to "Sign Up", new_user_registration_path %></span>  
+<% else %>
+
+<span class="pad"><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></span>
+<span class="pad" ]><span style="color:#6F89DE;"><%=current_user.email %></span></span>
+
+<% end %>
+
+<br><br>
+</div>
+ <p class="notice" style="float:right;"><%= notice %></p>
+       <p class="alert" style="float:right;"><%= alert %></p>
+
 
 <% if current_user %>
-<%=current_user.email %>
-<%= link_to "Log Out", destroy_user_session_path, method: "delete" %>
+<div class="jumbotron">
+<div class="container">
+<br><br>
 <% end %>
-<%= link_to "HOME", posts_path %>
 
 <%= yield %>
 
+<% if current_user %>
+</div>
+</div>
+<% end %>
 </body>
 </html>
